@@ -57,13 +57,13 @@ binary_search:
         # mid^2
         mul     x8, x7, x7
 
-        # if mid^2 == n, we've found the exact square root
+        ## if mid^2 == n, we've found the exact square root
         beq     x8, x4, done
         
-        # if mid^2 < n, move lo to mid + 1
+        ## if mid^2 < n, move lo to mid + 1
         blt     x8, x4, adjust_lo
         
-        # if mid^2 > n, move hi to mid - 1
+        ## if mid^2 > n, move hi to mid - 1
         add     x6, x7, x0
         addi    x6, x6, -1
         j       check_lo
@@ -73,10 +73,10 @@ adjust_lo:
         addi    x5, x5, 1
 
 check_lo:
-        # if lo <= hi, continue the binary search
+        ## if lo <= hi, continue the binary search
         ble     x5, x6, binary_search
 
-        # if lo > hi, we've found the largest integer such that mid^2 <= n
+        ## if lo > hi, we've found the largest integer such that mid^2 <= n
         add     x9, x7, x0
         blt     x8, x4, done
         addi    x9, x7, -1
