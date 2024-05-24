@@ -3,12 +3,12 @@ Computer Organization - Spring 2024
 ## Iran Univeristy of Science and Technology
 ## Assignment 1: Assembly code execution on phoeniX RISC-V core
 
-- Name:Mohammad Sadegh Aghasi
-- Team Members: Mohammad Mahdi Masoumi
-- Student ID: 400411126
+- Name:Mohammad Mohammad Mahdi Masoumi
+- Team Members: Sadegh Aghasi
+- Student ID: 400413314
 - Date:5/22/2024
 
-https://github.com/Sadegh-a82/phoeniX_sadegh
+https://github.com/M-Mahdi-M1381/phoeniX_MMM
 
 ## Report
 Square Root:
@@ -33,7 +33,6 @@ Summary:
 This program calculates the integer square root of a given number using binary search. The input value is defined in the data section, and the program uses a loop to perform binary search, comparing the square of the middle value with the input number to find the nearest integer square root.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype_bb.png" width="530" height="150" style="vertical-align:middle">
     <img alt="logo in light mode and dark mode" src="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype.png" width="530" height="150" style="vertical-align:middle"> 
 </picture> 
 
@@ -85,7 +84,6 @@ This RISC-V assembly program sorts an array using the QuickSort algorithm. It in
 
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype_bb.png" width="530" height="150" style="vertical-align:middle">
     <img alt="logo in light mode and dark mode" src="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype.png" width="530" height="150" style="vertical-align:middle"> 
 </picture> 
 
