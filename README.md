@@ -33,7 +33,7 @@ Summary:
 This program calculates the integer square root of a given number using binary search. The input value is defined in the data section, and the program uses a loop to perform binary search, comparing the square of the middle value with the input number to find the nearest integer square root.
 
 <picture>
-    <img alt="logo in light mode and dark mode" src="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype.png" width="530" height="150" style="vertical-align:middle"> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/M-Mahdi-M1381/phoeniX_MMM/blob/main/Documents/Images/squareroot.png" width="530" height="150" style="vertical-align:middle">
 </picture> 
 
 
@@ -84,7 +84,7 @@ This RISC-V assembly program sorts an array using the QuickSort algorithm. It in
 
 
 <picture>
-    <img alt="logo in light mode and dark mode" src="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype.png" width="530" height="150" style="vertical-align:middle"> 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/M-Mahdi-M1381/phoeniX_MMM/blob/main/Documents/Images/quicksort.png" width="530" height="150" style="vertical-align:middle">
 </picture> 
 
 
