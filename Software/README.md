@@ -1,79 +1,96 @@
-Software
-====================
-<div align="justify">
+Computer Organization - Spring 2024
+==============================================================
+## Iran Univeristy of Science and Technology
+## Assignment 1: Assembly code execution on phoeniX RISC-V core
 
-This directory contains source files of sample codes and user codes which will be executed on the phoeniX processor. In this directory, there are three subdirectories included:
-- `Sample_Assembly_Codes`
-- `Sample_C_Codes`
-- `User_Codes`
+- Name:Mohammad Sadegh Aghasi
+- Team Members: Mohammad Mahdi Masoumi
+- Student ID: 400411126
+- Date:5/22/2024
 
-The code execution and simulation on the phoeniX RISC-V processor follow two distinct branches: one for Linux systems and another for Windows systems.
-</div>
+https://github.com/Sadegh-a82/phoeniX_sadegh
 
-### Linux
+## Report
+Square Root:
+In this section, an input number with the value 144 is defined, for which the program will calculate the integer square root.
+First, the address of the number n is loaded into register x4, and then the value is loaded from memory.
+Initial values for the binary search are set: lo in register x5 is set to 0 and hi in register x6 is set to the value of n.
+The value mid is calculated as the average of lo and hi. Here, x7 holds the value of mid.
+If mid^2 is equal to n, the exact square root is found, and the program jumps to the done section.
+If mid^2 is less than n, lo should be set to mid + 1
+If mid^2 is greater than n, hi should be set to mid - 1, then jump to check_lo.
+Adjusting lo
+lo is incremented to mid + 1.
+Checking if the Binary Search Should Continue
+If lo is less than or equal to hi, the search continues, and the program jumps back to binary_search.
+Finding the Nearest Integer
+If lo is greater than hi, the nearest integer whose square is less than or equal to n is found and stored in x9.
+Ending the Program
+The program ends with an exit system call.
 
-#### Running Sample Codes
-<div align="justify">
 
-The directory `/Software` contains sample codes for some conventional programs and algorithms in both Assembly and C which can be found in `/Sample_Assembly_Codes` and `/Sample_C_Codes` sub-directories respectively. 
+Summary:
+This program calculates the integer square root of a given number using binary search. The input value is defined in the data section, and the program uses a loop to perform binary search, comparing the square of the middle value with the input number to find the nearest integer square root.
 
-phoeniX convention for naming projects is as follows; The main source file of the project is named as `{project.c}` or `{project.s}`. This file along other required source files are kept in one directory which has the same name as the project itself, i.e. `/project`.
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype_bb.png" width="530" height="150" style="vertical-align:middle">
+    <img alt="logo in light mode and dark mode" src="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype.png" width="530" height="150" style="vertical-align:middle"> 
+</picture> 
 
-Sample projects provided at this time are `bubble_sort`, `fibonacci`, `find_max_array`, `sum1ton`.
-To run any of these sample projects simply run `make sample` followed by the name of the project passed as a variable named project to the Makefile.
-```shell
-make sample project={project}
-```
-For example:
-```shell
-make sample project=fibonacci
-```
 
-Provided that the RISC-V toolchain is set up correctly, the Makefile will compile the source codes separately, then using the linker script `riscv.ld` provided in `/Firmware` it links all the object files necessary together and creates `firmware.elf`. It then creates `start.elf` which is built from `start.s` and `start.ld` and concatenate these together and finally forms the `{project}_firmware.hex`. This final file can be directly fed to our verilog testbench. Makefile automatically runs the testbench and calls upon `gtkwave` to display the selected signals in the waveform viewer.
 
-</div>
 
-#### Running Your Own Code
-<div align="justify">
 
-In order to run your own code on phoeniX, create a directory named to your project such as `/my_project` in `/Software/User_Codes/`. Put all your `.c` and `.s` files in `/my_project` and run the following `make` command from the main directory:
-```shell
-make code project=my_project
-```
-Provided that you name your project sub-directory correctly and the RISC-V Toolchain is configured without any troubles on your machine, the Makefile will compile all your source files separately, then using the linker script `riscv.ld` provided in `/Firmware` it links all the object files necessary together and creates `firmware.elf`. It then creates `start.elf` which is built from `start.s` and `start.ld` and concatenate these together and finally forms the `my_project_firmware.hex`. After that, `iverilog` and `gtkwave` are used to compile the design and view the selected waveforms.
-> Further Configurations
-: The default testbench provided as `phoeniX_Testbench.v` is currently set to support up to 4MBytes of memory and the stack pointer register `sp` is configured accordingly. If you wish to change this, you need configure both the testbench and the initial value the `sp` is set to in `/Firmware/start.s`. If you wish to use other specific libraries and header files not provided in `/Firmware` please beware you may need to change linker scripts `riscv.ld` and `start.ld`.
-</div>
 
-### Windows
 
-#### Running Sample Codes
-<div align="justify">
 
-We have meticulously developed a lightweight and user-friendly software solution with the help of Python. Our execution assistant software, `AssembleX`, has been crafted to cater to the specific needs of Windows systems, enabling seamless execution of assembly code on the phoeniX processor. 
 
-This tool  enhances the efficiency of the code execution process, offering a streamlined experience for users seeking to enter the realm of assembly programming on pheoniX processor in a very simple and user-friendly way.
 
-Before running the script, note that the assembly output of the Venus Simulator for the code must be also saved in the project directory.
-To run any of these sample projects simply run python `AssembleX_V1.0.py sample` followed by the name of the project passed as a variable named project to the Python script.
-The input command format for the terminal follows the structure illustrated below:
-```shell
-python AssembleX_V1.0.py sample {project_name}
-```
-For example:
-```shell
-python AssembleX_V1.0.py sample fibonacci
-```
-After execution of this script, firmware file will be generated and this final file can be directly fed to our Verilog testbench. AssembleX automatically runs the testbench and calls upon gtkwave to display the selected signals in the waveform viewer application, gtkwave.
-</div>
 
-#### Running Your Own Code
-<div align="justify">
 
-In order to run your own code on phoeniX, create a directory named to your project such as `/my_project in /Software/User_Codes/`. Put all your ``user_code.s` files in my_project and run the following command from the main directory:
-```shell
-python AssembleX_V1.0.py code my_project
-```
-Provided that you name your project sub-directory correctly the AssembleX software will create `my_project_firmware.hex` and fed it directly to the testbench of phoeniX processor. After that, iverilog and GTKWave are used to compile the design and view the selected waveforms.
-</div>
 
+
+
+
+
+
+
+Quick Sort :
+Main Program Initialization
+1. Stack Pointer Adjustment: The stack pointer (sp) is incremented by 1000 to allocate space on the stack.
+2. Array Initialization: The array elements are initialized in memory starting from the address in a0.
+3. Setting Up Start and End Indices: Registers a1 and a2 are set to represent the start (0) and end (6) indices of the array.
+4. Calling QuickSort: The QUICKSORT function is called to sort the array.
+5. Exiting the Program: After QuickSort completes, the program jumps to the EXIT routine to halt execution.
+QuickSort Function
+1. Saving Registers: The function saves the return address (ra) and other used registers on the stack.
+2. Setting Up Arguments: The starting (s0), low (s1), and high (s2) indices of the array are set from a0, a1, and a2 respectively.
+3. Base Case Check: If start is not less than end, the function returns.
+4. Partitioning: The PARTITION function is called to partition the array.
+5. Recursive Calls:
+* QuickSort is called recursively on the subarray before the pivot index.
+* QuickSort is called recursively on the subarray after the pivot index.
+6. Restoring Registers: Registers are restored from the stack before returning to the caller.
+Partition Function
+1. Saving Return Address: The return address is saved on the stack.
+2. Setting Pivot: The pivot element is selected from the end of the array.
+3. Partitioning Loop: The loop iterates through the array, comparing each element with the pivot and swapping elements as necessary.
+4. Final Swap: After partitioning, the pivot is placed in its correct position.
+5. Returning Pivot Index: The function returns the index of the pivot element after partitioning
+Program Termination: The program execution is halted using the ebreak instruction.
+
+Summary
+
+This RISC-V assembly program sorts an array using the QuickSort algorithm. It initializes the array, calls the QuickSort function, and uses a partition function to divide the array around a pivot element. Recursive calls sort the subarrays until the entire array is sorted. The program then terminates with an ebreak instruction.
+
+
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype_bb.png" width="530" height="150" style="vertical-align:middle">
+    <img alt="logo in light mode and dark mode" src="https://github.com/phoeniX-Digital-Design/phoeniX/blob/main/Documents/Images/phoenix_full_logotype.png" width="530" height="150" style="vertical-align:middle"> 
+</picture> 
+
+
+
+
+
+Good luck
