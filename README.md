@@ -34,6 +34,7 @@ This program calculates the integer square root of a given number using binary s
 
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/M-Mahdi-M1381/phoeniX_MMM/blob/main/Documents/Images/squareroot.png" width="530" height="150" style="vertical-align:middle">
+    <img alt="logo in light mode and dark mode" src="https://github.com/M-Mahdi-M1381/phoeniX_MMM/blob/main/Documents/Images/squareroot.png" width="530" height="150" style="vertical-align:middle">
 </picture> 
 
 
