@@ -35,15 +35,15 @@
 #         mv a0, t0
 #         ret
 
-        .data
-n:      .word 144       # Input number to calculate the square root
+#         .data
+# n:      .word 144       # Input number to calculate the square root
 
-        .text
-        .globl _start
+#         .text
+#         .globl _start
 _start:
         # Load the number n into x4
-        la      x4, n
-        lw      x4, 0(x4)
+        addi     x4,zero ,144
+        #lw      x4, 0(x4)
         
         # Initialize low (lo) and high (hi)
         li      x5, 0      # lo = 0
